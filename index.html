@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venom Merch Catalog</title>
+    <link rel="icon" type="image/png" href="logos/favicon.png">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; text-align: center; position: relative; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .product-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; overflow: hidden; }
+
+        /* Restoring the look you liked: Shows full image without cropping or breaking */
+        .product-img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: contain; 
+            background-color: #ebebeb; 
+            display: block; 
+        }
+
+        .product-info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-options { margin: 10px 0; text-align: left; font-size: 0.9em; }
+        .product-options label { font-weight: bold; display: block; margin-top: 8px; }
+        .product-options select { width: 100%; padding: 8px; margin: 5px 0; border-radius: 4px; border: 1px solid #ccc; }
+        .spacer { height: 105px; } 
+
+        button { background: #000; color: #fff; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: auto; }
+        #cart-container { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 12px; text-align: left; }
+        .form-input { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        .cart-item { padding: 8px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        
+        /* Copyright Style */
+        .copyright {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #555;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 8px;
+            z-index: 1000; /* Ensures it stays on top of images */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="copyright">© Made by Janne Räty 🤓</div>
+
+    <header>
+        <h1>Venom Merchandise</h1>
+        <p>Select your items to build your order</p>
+    </header>
+
+    <main class="product-grid">
+        <div class="product-card">
+            <img src="product_images/socks.webp" alt="Socks" class="product-img">
+            <div class="product-info">
+                <h3>Venom Socks</h3>
+                <p><strong>10.00 €</strong></p>
+                <div class="product-options">
+                    <label>Color:</label>
+                    <select id="socks-color"><option>Black</option><option>White</option></select>
+                    <label>Size:</label>
+                    <select id="socks-size"><option>S</option><option>M</option><option>L</option></select>
+                </div>
+                <button onclick="addToCart('Socks', 10)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/jersey.webp" alt="Jersey" class="product-img">
+            <div class="product-info">
+                <h3>Game Jersey</h3>
+                <p><strong>45.00 €</strong></p>
+                <div class="product-options">
+                    <label>Size:</label>
+                    <select id="j-size"><option>S</option><option>M</option><option>L</option></select>
+                </div>
+                <button onclick="addToCart('Jersey', 45)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/bball.webp" alt="Basketball" class="product-img">
+            <div class="product-info">
+                <h3>Venom Basketball</h3>
+                <p><strong>30.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Basketball', 30)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/cap.webp" alt="Cap" class="product-img">
+            <div class="product-info">
+                <h3>Venom Cap</h3>
+                <p><strong>20.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Cap', 20)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/bballshoe.webp" alt="Shoes" class="product-img">
+            <div class="product-info">
+                <h3>Basketball Shoes</h3>
+                <p><strong>85.00 €</strong></p>
+                <div class="product-options">
+                    <label>Size:</label>
+                    <select id="bs-size"><option>42</option><option>43</option><option>44</option></select>
+                </div>
+                <button onclick="addToCart('Basketball Shoes', 85)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/skateshoe.webp" alt="Skate Shoes" class="product-img">
+            <div class="product-info">
+                <h3>Skate Shoes</h3>
+                <p><strong>65.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Skate Shoes', 65)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/tubescarf.webp" alt="Scarf" class="product-img">
+            <div class="product-info">
+                <h3>Tube Scarf</h3>
+                <p><strong>15.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Tube Scarf', 15)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/armsleeve.webp" alt="Sleeves" class="product-img">
+            <div class="product-info">
+                <h3>Arm Sleeves</h3>
+                <p><strong>12.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Arm Sleeves', 12)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/headband.webp" alt="Headband" class="product-img">
+            <div class="product-info">
+                <h3>Headband</h3>
+                <p><strong>8.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Headband', 8)">Add to Selection</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="product_images/wristband.webp" alt="Wristband" class="product-img">
+            <div class="product-info">
+                <h3>Wristband</h3>
+                <p><strong>6.00 €</strong></p>
+                <div class="spacer"></div>
+                <button onclick="addToCart('Wristband', 6)">Add to Selection</button>
+            </div>
+        </div>
+    </main>
+
+    <section id="cart-container">
+        <h2>Your Selection</h2>
+        <ul id="cart-list" style="padding-left: 0;"><li>No items selected.</li></ul>
+        <p><strong>Total Estimate: <span id="cart-total">0</span>.00 €</strong></p>
+        <form name="merch-orders" method="POST" data-netlify="true">
+            <input type="hidden" name="final-order" id="items-input">
+            <input type="text" name="name" placeholder="Your Name" required class="form-input">
+            <input type="email" name="email" placeholder="Your Email" required class="form-input">
+            <button type="submit" style="width:100%">Submit Order Request</button>
+        </form>
+    </section>
+
+    <script>
+        let cart = [];
+        let total = 0;
+        function addToCart(name, price) {
+            cart.push({name, price});
+            total += price;
+            updateUI();
+        }
+        function updateUI() {
+            const list = document.getElementById('cart-list');
+            list.innerHTML = cart.length === 0 ? '<li>No items selected.</li>' : 
+                cart.map((item, index) => `<li class="cart-item"><span>✅ ${item.name} - ${item.price}.00 €</span></li>`).join('');
+            document.getElementById('cart-total').innerText = total;
+            document.getElementById('items-input').value = cart.map(i => i.name).join(', ') + " | Total: " + total + "€";
+        }
+    </script>
+</body>
+</html>
