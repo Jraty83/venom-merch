@@ -1,82 +1,96 @@
-/* General Layout */
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background-color: #f4f4f4; 
-    margin: 0; 
-    padding: 20px; 
-    text-align: center; 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f5f5f7;
+    margin: 0;
+    padding: 0;
+    color: #1d1d1f;
 }
 
-.product-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
-    max-width: 1200px; 
-    margin: 0 auto; 
+header {
+    background: #000;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-/* Product Cards */
-.product-card { 
-    background: #fff; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    display: flex; 
-    flex-direction: column; 
-    overflow: hidden;
+.logo { width: 60px; margin-bottom: 10px; }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* THE FIX: Forces every image into the same 'Wide' ratio as the Shoes */
-.product-img { 
-    width: 100%; 
-    aspect-ratio: 16 / 9; /* This forces the "Wide" shoe shape on everything */
-    object-fit: cover;    /* Fills the entire box */
-    object-position: center; 
-    background-color: #ebebeb; 
-    display: block; 
+.product-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+.product-card img { width: 100%; border-radius: 12px; margin-bottom: 15px; }
 
-.product-options { margin: 15px 0; text-align: left; font-size: 0.9em; }
-.product-options label { font-weight: bold; display: block; margin-top: 10px; }
-.product-options select { 
-    width: 100%; 
-    padding: 10px; 
-    margin-top: 5px; 
-    border-radius: 6px; 
-    border: 1px solid #ddd; 
+.price { font-weight: 600; font-size: 1.2rem; margin: 10px 0; }
+
+.selectors { text-align: left; margin: 15px 0; }
+
+label { font-size: 0.8rem; font-weight: 600; color: #86868b; display: block; margin-bottom: 5px; }
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d2d2d7;
+    margin-bottom: 10px;
 }
 
-.spacer { height: 110px; } 
-
-button { 
-    background: #000; 
-    color: #fff; 
-    border: none; 
-    padding: 14px; 
-    border-radius: 6px; 
-    cursor: pointer; 
-    font-weight: bold; 
-    margin-top: auto;
+.add-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-/* Cart & Form */
-#cart-container { 
-    max-width: 600px; 
-    margin: 50px auto; 
-    background: white; 
-    padding: 30px; 
-    border-radius: 12px; 
-    text-align: left; 
+.selection-form {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.form-input { 
-    width: 100%; 
-    padding: 14px; 
-    margin-bottom: 12px; 
-    border: 1px solid #ccc; 
-    border-radius: 6px; 
-    box-sizing: border-box; 
+.form-group { margin-bottom: 20px; text-align: left; }
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
-.cart-item { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+textarea { height: 120px; background: #f5f5f7; font-family: monospace; resize: none; }
+
+.submit-btn {
+    background: #0071e3;
+    color: #fff;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+footer { text-align: center; padding: 40px; color: #86868b; }

@@ -3,95 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Venom Merch Catalog | Official Basketball Gear</title>
-    <meta name="title" content="Venom Merch Catalog | Official Basketball Gear">
-    <meta name="description" content="Explore the official Venom Basketball Merchandise catalog. High-performance gear for athletes and fans. Shop jerseys, shoes, and accessories.">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jraty83.github.io/venom-merch/">
-    <meta property="og:title" content="Venom Merch Catalog | Official Basketball Gear">
-    <meta property="og:description" content="Explore the official Venom Basketball Merchandise catalog. High-performance gear for athletes and fans. Shop jerseys, shoes, and accessories.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/jraty83/venom-merch/main/logos/social_media_preview.png">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://jraty83.github.io/venom-merch/">
-    <meta property="twitter:title" content="Venom Merch Catalog | Official Basketball Gear">
-    <meta property="twitter:description" content="Explore the official Venom Basketball Merchandise catalog. High-performance gear for athletes and fans. Shop jerseys, shoes, and accessories.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/jraty83/venom-merch/main/logos/social_media_preview.png">
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="header-container">
-            <img src="logos/venom_logo.png" alt="Venom Logo" class="logo">
+            <img src="logos/venom.png" alt="Venom Logo" class="logo" style="width: 120px;">
             <div class="header-text">
                 <h1>Venom Merch</h1>
-                <p>© 2026 Janne Räty</p>
+                <p>Select items to build your order summary</p>
             </div>
         </div>
     </header>
 
     <main>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card" data-name="Game Jersey" data-price="45">
                 <img src="product_images/jersey.webp" alt="Game Jersey">
                 <h3>Game Jersey</h3>
-                <p>€45.00</p>
+                <p class="price">45.00 €</p>
+                <div class="selectors">
+                    <label>Size:</label>
+                    <select class="size-select"><option>S</option><option>M</option><option>L</option><option>XL</option></select>
+                </div>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Venom Basketball" data-price="30">
                 <img src="product_images/bball.webp" alt="Venom Basketball">
                 <h3>Venom Basketball</h3>
-                <p>€30.00</p>
+                <p class="price">30.00 €</p>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Venom Cap" data-price="20">
                 <img src="product_images/cap.webp" alt="Venom Cap">
                 <h3>Venom Cap</h3>
-                <p>€20.00</p>
+                <p class="price">20.00 €</p>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Basketball Shoes" data-price="85">
                 <img src="product_images/bballshoe.webp" alt="Basketball Shoes">
                 <h3>Basketball Shoes</h3>
-                <p>€85.00</p>
+                <p class="price">85.00 €</p>
+                <div class="selectors">
+                    <label>Size:</label>
+                    <select class="size-select"><option>40</option><option>41</option><option>42</option><option>43</option><option>44</option></select>
+                </div>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Skate Shoes" data-price="65">
                 <img src="product_images/skateshoe.webp" alt="Skate Shoes">
                 <h3>Skate Shoes</h3>
-                <p>€65.00</p>
+                <p class="price">65.00 €</p>
+                <div class="selectors">                    <label>Size:</label>
+                    <select class="size-select"><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option></select>
+                </div>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Tube Scarf" data-price="15">
                 <img src="product_images/tubescarf.webp" alt="Tube Scarf">
                 <h3>Tube Scarf</h3>
-                <p>€15.00</p>
+                <p class="price">15.00 €</p>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Arm Sleeves" data-price="12">
                 <img src="product_images/armsleeve.webp" alt="Arm Sleeves">
                 <h3>Arm Sleeves</h3>
-                <p>€12.00</p>
+                <p class="price">12.00 €</p>
+                <div class="selectors">
+                    <label>Size:</label>
+                    <select class="size-select"><option>S/M</option><option>L/XL</option></select>
+                </div>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Venom Headband" data-price="10">
                 <img src="product_images/headband.webp" alt="Headband">
                 <h3>Venom Headband</h3>
-                <p>€10.00</p>
+                <p class="price">10.00 €</p>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Venom Wristband" data-price="8">
                 <img src="product_images/wristband.webp" alt="Wristband">
                 <h3>Venom Wristband</h3>
-                <p>€8.00</p>
+                <p class="price">8.00 €</p>
+                <button class="add-btn">Add to Selection</button>
             </div>
-            <div class="product-card">
+
+            <div class="product-card" data-name="Venom Socks" data-price="10">
                 <img src="product_images/socks.webp" alt="Venom Socks">
                 <h3>Venom Socks</h3>
-                <p>€10.00</p>
+                <p class="price">10.00 €</p>
+                <div class="selectors">
+                    <label>Color:</label>
+                    <select class="color-select"><option>Black</option><option>White</option></select>
+                    <label>Size:</label>
+                    <select class="size-select"><option>35-38</option><option>39-42</option><option>43-46</option></select>
+                </div>
+                <button class="add-btn">Add to Selection</button>
             </div>
         </div>
+
+        <section class="selection-form">
+            <h2>Your Selection</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="Type your email here" required>
+                </div>
+                <div class="form-group">
+                    <label>Items & Total Amount:</label>
+                    <textarea id="selection-summary" readonly placeholder="Click 'Add to Selection' on items above..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Copy Selection Request</button>
+            </form>
+        </section>
     </main>
 
-    <footer>
-        <p>For orders and inquiries, contact us via DM.</p>
-    </footer>
+    <script>
+        const summaryBox = document.getElementById('selection-summary');
+        const addButtons = document.querySelectorAll('.add-btn');
+        let totalPrice = 0;
+        let selectedItems = "";
 
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.product-card');
+                const productName = card.getAttribute('data-name');
+                const priceValue = parseFloat(card.getAttribute('data-price'));
+                const size = card.querySelector('.size-select')?.value || '';
+                const color = card.querySelector('.color-select')?.value || '';
+                
+                totalPrice += priceValue;
+
+                let itemDetail = `- ${productName}`;
+                if(color) itemDetail += ` (${color})`;
+                if(size) itemDetail += ` [Size: ${size}]`;
+                itemDetail += ` - ${priceValue}.00 €\n`;
+
+                selectedItems += itemDetail;
+                summaryBox.value = selectedItems + `\nTOTAL AMOUNT: ${totalPrice}.00 €`;
+                
+                button.innerText = "Added!";
+                button.style.background = "#28a745";
+                setTimeout(() => {
+                    button.innerText = "Add to Selection";
+                    button.style.background = "#000";
+                }, 1000);
+            });
+        });
+
+        document.getElementById('orderForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            summaryBox.select();
+            document.execCommand('copy');
+            alert("Selection and Total copied to clipboard!");
+        });
+    </script>
+
+    <footer>
+        <p>© 2026 Janne Räty • For orders and inquiries, contact us via DM.</p>
+    </footer>
 </body>
 </html>
