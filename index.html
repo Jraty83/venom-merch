@@ -60,7 +60,8 @@
                 <img src="product_images/skateshoe.webp" alt="Skate Shoes">
                 <h3>Skate Shoes</h3>
                 <p class="price">65.00 €</p>
-                <div class="selectors">                    <label>Size:</label>
+                <div class="selectors">
+                    <label>Size:</label>
                     <select class="size-select"><option>38</option><option>39</option><option>40</option><option>41</option><option>42</option></select>
                 </div>
                 <button class="add-btn">Add to Selection</button>
@@ -127,17 +128,30 @@
                     <label>Items & Total Amount:</label>
                     <textarea id="selection-summary" readonly placeholder="Click 'Add to Selection' on items above..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Copy Selection Request</button>
+                <button type="submit" class="submit-btn">Send Order Request</button>
             </form>
         </section>
     </main>
 
-    <script>
+    <footer>
+        <p>© 2026 Janne Räty • Official Venom Merchandise</p>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        // --- 1. INITIALIZE ---
+        // Replace 'YOUR_PUBLIC_KEY' with the one from your EmailJS Account tab
+        (function() {
+            emailjs.init("vwWjifCBerTa-jSIU"); 
+        })();
+
         const summaryBox = document.getElementById('selection-summary');
         const addButtons = document.querySelectorAll('.add-btn');
         let totalPrice = 0;
         let selectedItems = "";
 
+        // Selection Logic
         addButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const card = button.closest('.product-card');
@@ -165,16 +179,36 @@
             });
         });
 
-        document.getElementById('orderForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            summaryBox.select();
-            document.execCommand('copy');
-            alert("Selection and Total copied to clipboard!");
+        // --- 2. SEND EMAIL LOGIC ---
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const btn = document.querySelector('.submit-btn');
+            btn.innerText = 'Sending...';
+
+            // These names (from_name, reply_to, message) must match the {{tags}} in your EmailJS template
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                reply_to: document.getElementById('email').value,
+                message: summaryBox.value
+            };
+
+            // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with yours
+            emailjs.send('service_ghn6gy8', 'template_wjqpe72', templateParams)
+                .then(function() {
+                    btn.innerText = 'Order Sent!';
+                    alert('Order request sent successfully! Check your email for confirmation.');
+                    // Optional: Reset form after success
+                    document.getElementById('orderForm').reset();
+                    summaryBox.value = "";
+                    totalPrice = 0;
+                    selectedItems = "";
+                }, function(error) {
+                    btn.innerText = 'Error!';
+                    alert('FAILED... ' + JSON.stringify(error));
+                    console.log('FAILED...', error);
+                });
         });
     </script>
-
-    <footer>
-        <p>© 2026 Janne Räty • For orders and inquiries, contact us via DM.</p>
-    </footer>
 </body>
 </html>
